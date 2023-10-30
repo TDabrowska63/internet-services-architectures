@@ -8,8 +8,11 @@ import com.aui.Laboratorium2.TVShowsModels.services.TVSeriesService;
 import com.aui.Laboratorium2.TVShowsModels.Character;
 import com.aui.Laboratorium2.TVShowsModels.services.CharacterService;
 
+import java.util.UUID;
+
 @Component
 public class InitializeData implements InitializingBean{
+    // ************ EX 4 ************
     private final TVSeriesService seriesService;
     private final CharacterService characterService;
 
@@ -21,22 +24,22 @@ public class InitializeData implements InitializingBean{
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        TVSeries doctorWho = TVSeries.builder().seriesName("Doctor Who").numberOfSeasons(41).build();
-        TVSeries vikings = TVSeries.builder().seriesName("Vikings").numberOfSeasons(6).build();
-        TVSeries goodOmens = TVSeries.builder().seriesName("Good Omens").numberOfSeasons(2).build();
+        TVSeries doctorWho = TVSeries.builder().id(UUID.randomUUID()).seriesName("Doctor Who").numberOfSeasons(41).build();
+        TVSeries vikings = TVSeries.builder().id(UUID.randomUUID()).seriesName("Vikings").numberOfSeasons(6).build();
+        TVSeries goodOmens = TVSeries.builder().id(UUID.randomUUID()).seriesName("Good Omens").numberOfSeasons(2).build();
         seriesService.create(doctorWho);
         seriesService.create(vikings);
         seriesService.create(goodOmens);
 
-        Character character1 = Character.builder().name("Doctor").age(2900).series(doctorWho).build();
-        Character character2 = Character.builder().name("Yaz").age(19).series(doctorWho).build();
-        Character character3 = Character.builder().name("Donna").age(35).series(doctorWho).build();
-        Character character4 = Character.builder().name("Lagherta").age(30).series(vikings).build();
-        Character character5 = Character.builder().name("Ivar").age(18).series(vikings).build();
-        Character character6 = Character.builder().name("Ragnar").age(42).series(vikings).build();
-        Character character7 = Character.builder().name("Crowley").age(6021).series(goodOmens).build();
-        Character character8 = Character.builder().name("Aziraphale").age(6021).series(goodOmens).build();
-        Character character9 = Character.builder().name("Adam").age(11).series(goodOmens).build();
+        Character character1 = Character.builder().id(UUID.randomUUID()).name("Doctor").age(2900).series(doctorWho).build();
+        Character character2 = Character.builder().id(UUID.randomUUID()).name("Yaz").age(19).series(doctorWho).build();
+        Character character3 = Character.builder().id(UUID.randomUUID()).name("Donna").age(35).series(doctorWho).build();
+        Character character4 = Character.builder().id(UUID.randomUUID()).name("Lagherta").age(30).series(vikings).build();
+        Character character5 = Character.builder().id(UUID.randomUUID()).name("Ivar").age(18).series(vikings).build();
+        Character character6 = Character.builder().id(UUID.randomUUID()).name("Ragnar").age(42).series(vikings).build();
+        Character character7 = Character.builder().id(UUID.randomUUID()).name("Crowley").age(6021).series(goodOmens).build();
+        Character character8 = Character.builder().id(UUID.randomUUID()).name("Aziraphale").age(6021).series(goodOmens).build();
+        Character character9 = Character.builder().id(UUID.randomUUID()).name("Adam").age(11).series(goodOmens).build();
 
         characterService.create(character1);
         characterService.create(character2);

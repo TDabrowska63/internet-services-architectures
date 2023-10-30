@@ -31,7 +31,7 @@ public class Character implements Serializable,Comparable<Character>{
 
     @Override
     public String toString() {
-        return "Character{seriesName='" + this.name + "', age=" + this.age + ", series=" + this.series + "}";
+        return "\nCharacter{seriesName='" + this.name + "', age=" + this.age + ", series=" + this.series + "}";
     }
 
     @Override

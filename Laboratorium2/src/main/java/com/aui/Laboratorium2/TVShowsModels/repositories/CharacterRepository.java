@@ -11,7 +11,11 @@ import java.util.UUID;
 
 @Repository
 public interface CharacterRepository extends JpaRepository<Character, UUID> {
+
+    // ************ EX 2 ************
+    //quering by category
     List<Character> findAllBySeries(TVSeries series);
+    //quering by name
     List<Character> findAllByName(String name);
     Optional<Character> findByName(String name);
 }

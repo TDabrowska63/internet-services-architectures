@@ -9,5 +9,7 @@ import java.util.UUID;
 
 @Repository
 public interface TVSeriesRepository extends JpaRepository<TVSeries, UUID> {
+
+        // ************ EX 2 ************
         Optional<TVSeries> findBySeriesName(String seriesName);
 }

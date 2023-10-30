@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface CharacterService {
+    // ************ EX 3 ************
     void update(Character character);
     void create(Character character);
     void delete(UUID id);

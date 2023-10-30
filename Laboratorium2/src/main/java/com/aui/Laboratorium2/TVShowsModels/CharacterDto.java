@@ -10,5 +10,5 @@ import lombok.*;
 public class CharacterDto {
     String name;
     int age;
-    String series_name;
+    String seriesName;
 }

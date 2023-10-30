@@ -3,7 +3,6 @@ package com.aui.Laboratorium2.TVShowsModels;
 import jakarta.persistence.*;
 import lombok.*;
 import java.io.Serializable;
-import java.util.Objects;
 import java.util.UUID;
 
 
@@ -16,7 +15,6 @@ import java.util.UUID;
 public class Character implements Serializable,Comparable<Character>{
     @Id
     private UUID id;
-
     @Column(name = "name")
     String name;
     @Column(name = "age")
@@ -26,9 +24,14 @@ public class Character implements Serializable,Comparable<Character>{
     @EqualsAndHashCode.Exclude
     TVSeries series;
 
+    public CharacterDto toDto()
+    {
+        return CharacterDto.builder().name(this.name).age(this.age).seriesName(this.getSeries().getSeriesName()).build();
+    }
+
     @Override
     public String toString() {
-        return "Character{name='" + this.name + "', age=" + this.age + ", series=" + this.series + "}";
+        return "Character{seriesName='" + this.name + "', age=" + this.age + ", series=" + this.series + "}";
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.aui.Laboratorium2.TVShowsModels.services;
 
 import com.aui.Laboratorium2.TVShowsModels.Character;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

@@ -1,12 +1,11 @@
 package com.aui.Laboratorium2.cmd;
 
-import ch.qos.logback.core.net.ObjectWriter;
 import com.aui.Laboratorium2.TVShowsModels.services.CharacterService;
 import com.aui.Laboratorium2.TVShowsModels.services.TVSeriesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
+import com.aui.Laboratorium2.ShutdownManager;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -71,6 +70,8 @@ public class Commands implements CommandLineRunner{
                     }
                     break;
                 case "end":
+                    ShutdownManager shutdownManager= new ShutdownManager();
+                    shutdownManager.initiateShutdown(0);
                     break main_loop;
                 default:
                     System.out.println("Wrong command");

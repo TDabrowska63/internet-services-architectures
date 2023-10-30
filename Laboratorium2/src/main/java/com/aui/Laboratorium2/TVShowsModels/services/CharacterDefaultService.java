@@ -2,11 +2,9 @@ package com.aui.Laboratorium2.TVShowsModels.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.aui.Laboratorium2.TVShowsModels.TVSeries;
 import com.aui.Laboratorium2.TVShowsModels.repositories.TVSeriesRepository;
 import com.aui.Laboratorium2.TVShowsModels.Character;
 import com.aui.Laboratorium2.TVShowsModels.repositories.CharacterRepository;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

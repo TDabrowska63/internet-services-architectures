@@ -6,13 +6,13 @@ import java.util.Objects;
 
 public class TVSeries implements Serializable{
     private String name;
-    private int baseArmor;
+    private int numberOfSeasons;
     private List<Character> characters;
 
     // Konstruktor
-    public TVSeries(String name, int baseArmor) {
+    public TVSeries(String name, int numberOfSeasons) {
         this.name = name;
-        this.baseArmor = baseArmor;
+        this.numberOfSeasons = numberOfSeasons;
         this.characters = new ArrayList<>();
     }
 
@@ -21,8 +21,8 @@ public class TVSeries implements Serializable{
         return name;
     }
 
-    public int getBaseArmor() {
-        return baseArmor;
+    public int getNumberOfSeasons() {
+        return numberOfSeasons;
     }
 
     public List<Character> getCharacters() {
@@ -35,21 +35,21 @@ public class TVSeries implements Serializable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TVSeries that = (TVSeries) o;
-        return baseArmor == that.baseArmor && Objects.equals(name, that.name);
+        return numberOfSeasons == that.numberOfSeasons && Objects.equals(name, that.name);
     }
 
     // Metoda hashCode
     @Override
     public int hashCode() {
-        return Objects.hash(name, baseArmor);
+        return Objects.hash(name, numberOfSeasons);
     }
 
     // Metoda toString
     @Override
     public String toString() {
-        return "Profession{" +
+        return "TVSeries{" +
                 "name='" + name + '\'' +
-                ", baseArmor=" + baseArmor +
+                ", numberOfSeasons=" + numberOfSeasons +
                 '}';
     }
 }

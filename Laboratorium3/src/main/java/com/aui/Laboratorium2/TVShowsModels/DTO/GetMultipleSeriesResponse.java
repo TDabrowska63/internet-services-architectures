@@ -19,6 +19,6 @@ public class GetMultipleSeriesResponse {
         private UUID id;
         private String seriesName;
     }
-    @Singular
+    @Singular("series")
     private List<TVSeries> series;
 }

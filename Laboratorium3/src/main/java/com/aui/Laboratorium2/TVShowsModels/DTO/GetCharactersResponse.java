@@ -9,7 +9,7 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class GetMultipleCharactersResponse {
+public class GetCharactersResponse {
     @Data
     @Builder
     @NoArgsConstructor

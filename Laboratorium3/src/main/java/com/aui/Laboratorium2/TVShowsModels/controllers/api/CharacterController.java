@@ -10,7 +10,7 @@ public interface CharacterController {
     @GetMapping("api/characters")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    GetMultipleCharactersResponse getMultipleCharacters();
+    GetCharactersResponse getMultipleCharacters();
 
     @GetMapping("api/series/{seriesId}/characters")
     @ResponseStatus(HttpStatus.OK)

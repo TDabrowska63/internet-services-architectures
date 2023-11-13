@@ -1,14 +1,12 @@
-package com.aui.Laboratorium2.DTO;
+package com.aui.Laboratorium2.TVShowsModels.DTO;
 
 import lombok.*;
-import java.util.UUID;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class GetSeriesResponse {
-    private UUID id;
+public class PatchSeriesRequest {
     private String seriesName;
     private int numberOfSeasons;
 }

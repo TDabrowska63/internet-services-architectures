@@ -1,4 +1,4 @@
-package com.aui.Laboratorium2.DTO;
+package com.aui.Laboratorium2.TVShowsModels.DTO;
 
 import lombok.*;
 

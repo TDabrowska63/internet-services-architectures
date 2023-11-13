@@ -1,4 +1,4 @@
-package com.aui.Laboratorium2.DTO;
+package com.aui.Laboratorium2.TVShowsModels.DTO;
 
 import lombok.*;
 
@@ -9,16 +9,16 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class GetMultipleSeriesResponse {
+public class GetMultipleCharactersResponse {
     @Data
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
-    public static class TVSeries
+    public static class Character
     {
         private UUID id;
-        private String seriesName;
+        private String name;
     }
     @Singular
-    private List<TVSeries> series;
+    private List<Character> characters;
 }

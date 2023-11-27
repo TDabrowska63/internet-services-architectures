@@ -10,14 +10,14 @@ public interface CharacterController {
     @GetMapping("api/characters")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    GetCharactersResponse getMultipleCharacters();
+    GetCharactersResponse getCharacters();
 
     @GetMapping("api/series/{seriesId}/characters")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    GetCharacterResponse getSeriesCharacters(
+    GetCharactersResponse getSeriesCharacters(
             @PathVariable("seriesId")
-            UUID fleetId
+            UUID seriesId
     );
 
     @GetMapping("api/characters/{id}")

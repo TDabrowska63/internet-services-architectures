@@ -10,7 +10,7 @@ public interface SeriesController {
     @GetMapping("api/series")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    GetMultipleSeriesResponse getMultipleSeries();
+    GetSeriessResponse getSeriess();
 
     @GetMapping("api/series/{id}")
     @ResponseStatus(HttpStatus.OK)

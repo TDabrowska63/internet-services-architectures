@@ -51,8 +51,8 @@ public class CharacterDefaultService implements CharacterService{
     }
 
     @Override
-    public Optional<List<Character>> findAllBySeries(UUID fleetId) {
-        return seriesRepository.findById(fleetId).map(repository::findAllBySeries);
+    public Optional<List<Character>> findAllBySeries(UUID seriesId) {
+        return seriesRepository.findById(seriesId).map(repository::findAllBySeries);
     }
 
     @Override

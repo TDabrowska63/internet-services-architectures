@@ -13,6 +13,11 @@ public class CharacterToResponseFunc implements Function<Character, GetCharacter
             return GetCharacterResponse.builder()
                     .id(entity.getId())
                     .name(entity.getName())
+                    .age(entity.getAge())
+                    .series(GetCharacterResponse.TVSeries.builder()
+                            .id(entity.getSeries().getId())
+                            .seriesName(entity.getSeries().getSeriesName())
+                            .build())
                     .build();
         }
 }

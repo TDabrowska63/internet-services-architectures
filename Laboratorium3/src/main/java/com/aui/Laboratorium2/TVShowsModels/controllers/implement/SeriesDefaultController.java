@@ -16,20 +16,20 @@ import java.util.UUID;
 
 @RestController
 @Log
-public class SeriesDefaultController implements SeriesController{
+public class SeriesDefaultController implements SeriesController {
     private final TVSeriesService service;
-    private final TVSeriesToResponseFunction seriesToResponse;
-    private final TVSeriessToResponseFunction seriessToResponse;
-    private final RequestToTVSeriesFunction requestToSeries;
-    private final UpdateTVSeriesWithRequestFunction updateSeriesWithRequest;
+    private final SeriesToResponseFunc seriesToResponse;
+    private final SeriessToResponseFunc seriessToResponse;
+    private final RequestToSeriesFunc requestToSeries;
+    private final UpdateSeriesWithRequestFunc updateSeriesWithRequest;
 
     @Autowired
     public SeriesDefaultController(
             TVSeriesService service,
-            TVSeriesToResponseFunction seriesToResponse,
-            TVSeriessToResponseFunction seriessToResponse,
-            RequestToTVSeriesFunction requestToSeries,
-            UpdateTVSeriesWithRequestFunction updateSeriesWithRequest
+            SeriesToResponseFunc seriesToResponse,
+            SeriessToResponseFunc seriessToResponse,
+            RequestToSeriesFunc requestToSeries,
+            UpdateSeriesWithRequestFunc updateSeriesWithRequest
     ) {
         this.service = service;
         this.seriesToResponse = seriesToResponse;
@@ -39,26 +39,35 @@ public class SeriesDefaultController implements SeriesController{
     }
 
     @Override
-    public GetMultipleSeriesResponse getMultipleSeries() {
+    public GetSeriessResponse getSeriess() {
         return seriessToResponse.apply(service.findAll());
     }
 
     @Override
     public GetSeriesResponse getSeries(UUID id) {
         return seriesToResponse.apply(service.find(id)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND)));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
 
     @Override
     public void putSeries(UUID id, PutSeriesRequest request) {
-        TVSeries series = requestToSeries.apply(request);
-        series.setId(id);
-        service.save(series);
+        service.create(requestToSeries.apply(id, request));
     }
 
     @Override
     public void updateSeries(UUID id, PatchSeriesRequest request) {
-        TVSeries series = service.find(id)
-                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
-        updateSeriesWithRequest
+        service.update(updateSeriesWithRequest.apply(service.find(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND)), request));
+    }
+
+    @Override
+    public void deleteSeries(UUID id) {
+        Optional<TVSeries> fleet = service.find(id);
+        if (fleet.isPresent()) {
+            service.delete(id);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

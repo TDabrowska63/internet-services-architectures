@@ -1,10 +1,12 @@
-package com.aui.Laboratorium2.TVShowsModels;
+package com.aui.Laboratorium4.series.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
+import com.aui.Laboratorium4.character.entity.Character;
 
 @Entity
 @Data
@@ -12,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="tvseries")
-public class TVSeries implements Serializable,Comparable<TVSeries>{
+public class Series implements Serializable,Comparable<Series>{
     @Id
     @ToString.Exclude
     private UUID id;
@@ -28,7 +30,7 @@ public class TVSeries implements Serializable,Comparable<TVSeries>{
     List<Character> characters;
 
     @Override
-    public int compareTo(TVSeries o) {
+    public int compareTo(Series o) {
         if(this.getSeriesName().compareTo(o.getSeriesName())<0)
             return -1;
         else if (this.getSeriesName().compareTo(o.getSeriesName())>0) {

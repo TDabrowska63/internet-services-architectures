@@ -1,0 +1,89 @@
+### get all ships
+GET http://localhost:8084/api/ships
+### get ship with id
+GET http://localhost:8084/api/ships/c4804e0f-769e-4ab9-9ebe-0578fb4f00a5
+### get ship not existing
+GET http://localhost:8084/api/ships/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+### get all ships of specified fleet
+GET http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/ships
+### get all ships of non existent fleet
+GET http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00a5/ships
+### create new ship
+PUT http://localhost:8084/api/ships/c4804e0f-769e-4ab9-9ebe-0578fb4f00b1
+Content-Type: application/json
+
+{
+  "name":"SV sailer",
+  "displacement":1000,
+  "fleet":"c4804e0f-769e-4ab9-9ebe-0578fb4f00a4"
+}
+### create new ship in non existent fleet
+PUT http://localhost:8084/api/ships/c4804e0f-769e-4ab9-9ebe-0578fb4f00b3
+Content-Type: application/json
+
+{
+  "name":"SV sailer2",
+  "displacement":100,
+  "fleet":"c4804e0f-769e-4ab9-9ebe-0578fb4f00a6"
+}
+### get all ships of empty fleet
+GET http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00a3/ships
+### update ship
+PATCH http://localhost:8084/api/ships/c4804e0f-769e-4ab9-9ebe-0578fb4f00b1
+Content-Type: application/json
+
+{
+  "name": "SV sailer3",
+  "displacement": 2000
+}
+### update non existent ship
+PATCH http://localhost:8084/api/ships/c4804e0f-769e-4ab9-9ebe-0578fb4f00c9
+Content-Type: application/json
+
+{
+  "name": "SV sailer",
+  "displacement": 2000
+}
+### delete ship
+DELETE http://localhost:8084/api/ships/c4804e0f-769e-4ab9-9ebe-0578fb4f00a5
+### delete non existent ship
+DELETE http://localhost:8084/api/ships/c4804e0f-769e-4ab9-9ebe-0578fb4f00d9
+
+
+### get all fleets
+GET http://localhost:8084/api/fleets
+### get specific fleet
+GET http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+### get non existent fleet
+GET http://localhost:8084/c4804e0f-769e-4ab9-9ebe-0578fb4f00a6
+### create new fleet
+PUT http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00a5
+Content-Type: application/json
+
+{
+  "fleetName":"central",
+  "countryOfOrigin": "Poland",
+  "profit":1203
+}
+### update fleet
+PATCH http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00a5
+Content-Type: application/json
+
+{
+  "fleetName":"non",
+  "countryOfOrigin": "America",
+  "profit":12030
+}
+### update non existent fleet
+PATCH http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00c9
+Content-Type: application/json
+
+{
+  "fleetName":"Western",
+  "countryOfOrigin": "America",
+  "profit":12030
+}
+### delete fleet
+DELETE http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+### delete non existent fleet
+DELETE http://localhost:8084/api/fleets/c4804e0f-769e-4ab9-9ebe-0578fb4f00a6

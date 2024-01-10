@@ -3,7 +3,7 @@ package com.aui.Laboratorium4.character.service.impl;
 import com.aui.Laboratorium4.character.entity.Character;
 import com.aui.Laboratorium4.character.repository.api.CharacterRepository;
 import com.aui.Laboratorium4.character.service.api.CharacterService;
-import com.aui.Laboratorium4.series.repository.api.TVSeriesRepository;
+import com.aui.Laboratorium4.series.repository.api.SeriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +14,10 @@ import java.util.UUID;
 @Service
 public class CharacterDefaultService implements CharacterService{
     private final CharacterRepository repository;
-    private final TVSeriesRepository seriesRepository;
+    private final SeriesRepository seriesRepository;
 
     @Autowired
-    public CharacterDefaultService(CharacterRepository repository, TVSeriesRepository seriesRepository) {
+    public CharacterDefaultService(CharacterRepository repository, SeriesRepository seriesRepository) {
         this.repository = repository;
         this.seriesRepository = seriesRepository;
     }

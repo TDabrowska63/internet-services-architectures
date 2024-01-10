@@ -13,7 +13,7 @@ public class GetCharacterResponse {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
-    public static class TVSeries {
+    public static class Series {
         private UUID id;
         private String seriesName;
 
@@ -21,5 +21,5 @@ public class GetCharacterResponse {
     private UUID id;
     private String name;
     private int age;
-    private TVSeries series;
+    private Series series;
 }

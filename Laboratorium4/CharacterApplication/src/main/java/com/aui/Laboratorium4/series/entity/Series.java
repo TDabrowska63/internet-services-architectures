@@ -20,14 +20,15 @@ public class Series implements Serializable,Comparable<Series>{
     private UUID id;
     @Column(name = "series_name")
     String seriesName;
-    @Column(name = "number_of_seasons")
-    int numberOfSeasons;
+    //@Column(name = "number_of_seasons")
+    //int numberOfSeasons;
     @OneToMany(mappedBy = "series", cascade=CascadeType.REMOVE)
     @Basic(fetch = FetchType.LAZY)
     @ToString.Exclude
     @Singular
     @EqualsAndHashCode.Exclude
     List<Character> characters;
+
 
     @Override
     public int compareTo(Series o) {
@@ -36,11 +37,11 @@ public class Series implements Serializable,Comparable<Series>{
         else if (this.getSeriesName().compareTo(o.getSeriesName())>0) {
             return 1;
         }
-        if(this.getNumberOfSeasons() - o.getNumberOfSeasons() < 0)
-            return -1;
-        else if (this.getNumberOfSeasons() - o.getNumberOfSeasons() > 0) {
-            return 1;
-        }
+//        if(this.getNumberOfSeasons() - o.getNumberOfSeasons() < 0)
+//            return -1;
+//        else if (this.getNumberOfSeasons() - o.getNumberOfSeasons() > 0) {
+//            return 1;
+//        }
         return 0;
     }
 }

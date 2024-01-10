@@ -15,7 +15,7 @@ public class CharacterToResponseFunc implements Function<Character, GetCharacter
                     .id(entity.getId())
                     .name(entity.getName())
                     .age(entity.getAge())
-                    .series(GetCharacterResponse.TVSeries.builder()
+                    .series(GetCharacterResponse.Series.builder()
                             .id(entity.getSeries().getId())
                             .seriesName(entity.getSeries().getSeriesName())
                             .build())

@@ -12,6 +12,7 @@ public class RequestToSeriesFunction implements Function<PostSeriesRequest, Seri
     public Series apply(PostSeriesRequest postSeriesRequest) {
         return Series.builder()
                 .id(postSeriesRequest.getId())
+                .seriesName(postSeriesRequest.getSeriesName())
                 .build();
     }
 }

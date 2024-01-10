@@ -27,17 +27,17 @@ public class InitializeData implements InitializingBean{
         Series doctorWho = Series.builder()
                 .id(UUID.fromString("d0441997-9c76-4f94-a575-1f935084c3cb"))
                 .seriesName("Doctor Who")
-                .numberOfSeasons(41)
+                //.numberOfSeasons(41)
                 .build();
         Series vikings = Series.builder()
                 .id(UUID.fromString("8678e163-8228-4d8a-81f0-b14b19297032"))
                 .seriesName("Vikings")
-                .numberOfSeasons(6)
+                //.numberOfSeasons(6)
                 .build();
         Series goodOmens = Series.builder()
                 .id(UUID.fromString("df69c0c6-884c-42e2-985d-7663506a2294"))
                 .seriesName("Good Omens")
-                .numberOfSeasons(2)
+                //.numberOfSeasons(2)
                 .build();
 
         /*

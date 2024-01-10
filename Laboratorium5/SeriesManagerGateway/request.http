@@ -1,0 +1,130 @@
+## ******************************** Characters ********************************
+
+### get all characters
+GET http://localhost:8084/api/characters
+### get character with id
+GET http://localhost:8084/api/characters/c42e98c6-ad0e-4d06-bea9-5b7a49cba6dc
+### get character not existing
+GET http://localhost:8084/api/characters/c4804e0f-769e-4ab9-9ebe-0578fb4f00a5
+### get all characters of specified series
+GET http://localhost:8084/api/series/8678e163-8228-4d8a-81f0-b14b19297032/characters
+### get all characters of non existent series
+GET http://localhost:8084/api/series/c4804e0f-769e-4ab9-9ebe-0578fb4f00a2/characters
+### get singular character of specified series
+GET http://localhost:8084/api/series/d0441997-9c76-4f94-a575-1f935084c3cb/characters/4f5b6b7f-0bec-469e-8002-51bba40f0a5e
+### get singular character of non existent series
+GET http://localhost:8084/api/series/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1/characters/565acba8-1f88-405a-bea7-5825cd19d4a1
+### get non existent character of specified series
+GET http://localhost:8084/api/series/8678e163-8228-4d8a-81f0-b14b19297032/characters/c4804e0f-769e-4ab9-9ebe-0578fb4f00a5
+### get all seriess
+GET http://localhost:8084/api/series
+### get specific series
+GET http://localhost:8084/api/series/df69c0c6-884c-42e2-985d-7663506a2294
+### get non existent series
+GET http://localhost:8084/api/series/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+### create new character
+PUT http://localhost:8084/api/characters/565acba8-1f88-405a-bea7-5825cd19d4a2
+Content-Type: application/json
+
+{
+  "name":"Bjorn",
+  "age":21,
+  "seriesId":"8678e163-8228-4d8a-81f0-b14b19297032"
+
+}
+### create new character in non existent series
+PUT http://localhost:8084/api/characters/c4804e0f-769e-4ab9-9ebe-0578fb4f00b3
+Content-Type: application/json
+
+{
+  "name":"Ubbe",
+  "age":16,
+  "seriesId":"8678e163-8228-4d8a-81f0-b14b19297044"
+}
+### create new series
+PUT http://localhost:8084/api/series/d0441997-9c76-4f94-a575-1f935084c3cc
+Content-Type: application/json
+
+{
+  "seriesName":"Warrior Nun",
+  "numberOfSeasons": 2
+}
+### get all characters of empty series
+GET http://localhost:8084/api/series/d0441997-9c76-4f94-a575-1f935084c3cc/characters
+### update character
+PATCH http://localhost:8084/api/characters/d33af163-5f12-4064-bf18-539fd2c2e401
+Content-Type: application/json
+
+{
+  "name":"Athlestan",
+  "age":35
+}
+### update non existent character
+PATCH http://localhost:8084/api/characters/c4804e0f-769e-4ab9-9ebe-0578fb4f00c9
+Content-Type: application/json
+
+{
+  "name":"Siggy",
+  "age":36
+}
+### update series
+PATCH http://localhost:8084/api/series/df69c0c6-884c-42e2-985d-7663506a2294
+Content-Type: application/json
+
+{
+  "seriesName":"Bad Omens",
+  "numberOfSeasons": 3
+}
+### update non existent series
+PATCH http://localhost:8084/api/series/c4804e0f-769e-4ab9-9ebe-0578fb4f00c9
+Content-Type: application/json
+
+{
+  "seriesName":"Professor Who",
+  "numberOfSeasons": 26
+}
+### delete character
+DELETE http://localhost:8084/api/characters/c42e98c6-ad0e-4d06-bea9-5b7a49cba6dc
+### delete non existent character
+DELETE http://localhost:8084/api/characters/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+### delete series
+DELETE http://localhost:8084/api/series/d0441997-9c76-4f94-a575-1f935084c3cb
+### delete non existent series
+DELETE http://localhost:8084/api/series/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+
+## ******************************** Series ********************************
+
+### get all seriess
+GET http://localhost:8082/api/series
+### get specific series
+GET http://localhost:8082/api/series/df69c0c6-884c-42e2-985d-7663506a2294
+### get non existent series
+GET http://localhost:8082/api/series/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1
+### create new series
+PUT http://localhost:8082/api/series/d0441997-9c76-4f94-a575-1f935084c3cc
+Content-Type: application/json
+
+{
+  "seriesName":"Warrior Nun",
+  "numberOfSeasons": 2
+}
+### update series
+PATCH http://localhost:8082/api/series/df69c0c6-884c-42e2-985d-7663506a2294
+Content-Type: application/json
+
+{
+  "seriesName":"Bad Omens",
+  "numberOfSeasons": 3
+}
+### update non existent series
+PATCH http://localhost:8082/api/series/c4804e0f-769e-4ab9-9ebe-0578fb4f00c9
+Content-Type: application/json
+
+{
+  "seriesName":"Professor Who",
+  "numberOfSeasons": 26
+}
+### delete series
+DELETE http://localhost:8082/api/series/d0441997-9c76-4f94-a575-1f935084c3cb
+### delete non existent series
+DELETE http://localhost:8082/api/series/c4804e0f-769e-4ab9-9ebe-0578fb4f00a1

@@ -56,7 +56,7 @@ export class CharacterEditComponent implements OnInit {
           this.character = {
             name: character.name,
             age: character.age,
-            series: params['series']
+            seriesId: params['series']
           };
           this.original = {...this.character};
         });
@@ -67,7 +67,7 @@ export class CharacterEditComponent implements OnInit {
    * Updates character.
    */
   onSubmit(): void {
-    this.characterService.putCharacter(this.uuid!, this.character!)
+    this.characterService.patchCharacter(this.uuid!, this.character!)
       .subscribe(() => this.router.navigate(['/characters']));
   }
 

@@ -34,7 +34,7 @@ export class CharacterPutComponent implements OnInit{
       this.character = {
         name: "enter name",
         age: 0,
-        series: params['uuid']
+        seriesId: params['uuid']
       };
 
       this.service.getCharacters().subscribe(characters => this.characters = characters);
@@ -61,7 +61,7 @@ export class CharacterPutComponent implements OnInit{
     } while (rand)
 
     this.service.putCharacter(uuid, this.character!)
-      .subscribe(() => this.router.navigate(['/seriess/'+this.character!.series]));
+      .subscribe(() => this.router.navigate(['/seriess/'+this.character!.seriesId]));
   }
 
 }

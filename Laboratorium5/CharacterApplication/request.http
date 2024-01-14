@@ -57,6 +57,15 @@ Content-Type: application/json
   "name":"Athlestan",
   "age":35
 }
+### update character
+PATCH http://localhost:8081/api/characters/4f5b6b7f-0bec-469e-8002-51bba40f0a5e
+Content-Type: application/json
+
+{
+  "age":21,
+  "id": "4f5b6b7f-0bec-469e-8002-51bba40f0a5e",
+    "name": "Bjorn"
+}
 ### update non existent character
 PATCH http://localhost:8081/api/characters/c4804e0f-769e-4ab9-9ebe-0578fb4f00c9
 Content-Type: application/json

@@ -8,6 +8,6 @@ export interface CharacterForm {
    */
   name: string;
   age: number;
-  series: string;
+  seriesId: string;
 
 }

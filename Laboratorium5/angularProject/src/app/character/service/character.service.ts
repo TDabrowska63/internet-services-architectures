@@ -56,4 +56,14 @@ export class CharacterService {
     return this.http.put('/api/characters/' + uuid, request);
   }
 
+    /**
+   * Patch single character.
+   *
+   * @param uuid character's id
+   * @param request request body
+   */
+    patchCharacter(uuid: string, request: CharacterForm): Observable<any> {
+      return this.http.patch('/api/characters/' + uuid, request);
+    }
+
 }

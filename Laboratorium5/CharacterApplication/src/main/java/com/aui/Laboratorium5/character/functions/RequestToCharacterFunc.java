@@ -19,6 +19,7 @@ public class RequestToCharacterFunc implements BiFunction<UUID, PutCharacterRequ
                     .series(Series.builder()
                             .id(request.getSeriesId())
                             .build())
+                    .age(request.getAge())
                     .build();
         }
 }

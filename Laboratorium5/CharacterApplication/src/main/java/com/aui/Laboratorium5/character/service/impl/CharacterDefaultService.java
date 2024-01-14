@@ -26,7 +26,9 @@ public class CharacterDefaultService implements CharacterService{
     public void create(Character character) {repository.save(character);}
 
     @Override
-    public void update(Character character) {repository.save(character);}
+    public void update(Character character) {
+        repository.save(character);
+    }
 
     @Override
     public void delete(UUID id) {repository.findById(id).ifPresent(repository::delete);}

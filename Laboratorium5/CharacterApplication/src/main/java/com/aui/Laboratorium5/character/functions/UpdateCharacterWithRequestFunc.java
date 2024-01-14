@@ -13,6 +13,7 @@ public class UpdateCharacterWithRequestFunc implements BiFunction<Character, Pat
         {
             return Character.builder()
                     .id(entity.getId())
+                    .age(request.getAge())
                     .name(request.getName())
                     .series(entity.getSeries())
                     .build();

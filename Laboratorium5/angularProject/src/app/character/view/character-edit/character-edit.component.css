@@ -1,0 +1,50 @@
+.character-edit {
+    background-color: #f3f6f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.character-edit h2 {
+    color: #337ab7;
+    margin-bottom: 1rem;
+}
+
+.form-colors .form-label {
+    color: #5a5a5a;
+}
+
+.form-colors .form-control {
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+}
+
+.form-colors .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.form-colors .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.form-colors .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.form-colors .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.form-colors .form-check-label {
+    margin-left: .3rem;
+}
+
+.form-colors .form-check-input {
+    accent-color: #007bff; /* For radio buttons */
+}

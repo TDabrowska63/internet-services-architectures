@@ -1,0 +1,35 @@
+<article *ngIf="series" class="series-details">
+  <header><h2 class="text-center">{{series.seriesName}}</h2></header>
+
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6">
+        <div class="info-box mb-3">
+          <p><strong>Id:</strong> <span>{{series.id}}</span></p>
+          <p><strong>Number Of Seasons:</strong> <span>{{series.numberOfSeasons}}</span></p>
+        </div>
+        
+        <div class="characters-table">
+          <h5>Characters:</h5>
+          <table class="table table-striped" *ngIf="characters">
+            <tbody>
+              <tr *ngFor="let character of characters.characters">
+                <td> - {{character.name}}</td>
+                <td>
+                  <a class="btn btn-primary btn-sm" [routerLink]="['/seriess/'+character.series+'/characters', character.id]">View</a>
+                </td>
+                <td>
+                  <a class="btn btn-warning btn-sm" [routerLink]="['/seriess/'+character.series+'/characters', character.id, 'edit']">Edit</a>
+                </td>
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="onDelete(character)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <a class="btn btn-success btn-sm" [routerLink]="['/seriess',series.id,'characters','create']">Create new character</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

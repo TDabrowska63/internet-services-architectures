@@ -1,0 +1,42 @@
+<article *ngIf="character" class="character-edit">
+  <header><h2 class="text-center">Edit Character</h2></header>
+
+  <form class="container mt-4 form-colors" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input id="name" name="name" [(ngModel)]="character.name" class="form-control"/>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 mb-3">
+        <label for="age" class="form-label">Age:</label>
+        <input id="age" name="age" type="number" [(ngModel)]="character.age" class="form-control"/>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 mb-3">
+        <fieldset class="form-group">
+          <legend class="col-form-label pt-0">Series:</legend>
+          <div *ngFor="let series of seriess?.seriess">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="series" id="series{{series.id}}" [(ngModel)]="character.series" [value]="series.id">
+              <label class="form-check-label" for="series{{series.id}}">
+                {{series.seriesName}}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 mb-3 d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-secondary" (click)="form.resetForm(original)">Reset</button>
+      </div>
+    </div>
+  </form>
+</article>

@@ -1,0 +1,28 @@
+<article class="text-justify">
+  <header><h2>Series</h2></header>
+  <table class="table table-bordered table-hover" *ngIf="seriess">
+    <thead class="thead-light">
+      <tr>
+        <th>Name</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let series of seriess.seriess">
+        <td>{{ series.seriesName }}</td>
+        <td>
+          <a class="btn btn-primary btn-sm" [routerLink]="['/seriess', series.id]">View</a>
+        </td>
+        <td>
+          <a class="btn btn-warning btn-sm" [routerLink]="['/seriess', series.id, 'edit']">Edit</a>
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(series)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-success btn-sm mt-3" [routerLink]="['/seriess', 'create']">Create new series</a>
+</article>

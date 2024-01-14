@@ -1,0 +1,28 @@
+<article class="text-justify">
+    <header><h2 class="mb-4">Characters</h2></header>
+  
+    <table class="table table-bordered table-hover" *ngIf="characters">
+      <thead class="thead-light">
+        <tr>
+          <th>Name</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let character of characters.characters">
+          <td>{{ character.name }}</td>
+          <td>
+            <a class="btn btn-primary btn-sm" [routerLink]="['/seriess/'+character.series+'/characters', character.id]">View</a>
+          </td>
+          <td>
+            <a class="btn btn-warning btn-sm" [routerLink]="['/seriess/'+character.series+'/characters', character.id, 'edit']">Edit</a>
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="onDelete(character)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</article>

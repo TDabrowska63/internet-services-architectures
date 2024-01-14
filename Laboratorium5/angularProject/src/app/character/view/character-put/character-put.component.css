@@ -1,0 +1,40 @@
+.character-create {
+    background-color: #f3f6f9; /* Light blue background */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.character-create .header-color {
+    color: #337ab7; /* Darker blue for the header */
+}
+
+.form-colors .form-label {
+    color: #5a5a5a; /* Grey color for labels */
+}
+
+.form-colors .form-control {
+    background-color: #eef1f5; /* Lighter input background for a subtle contrast */
+    border: 1px solid #ced4da;
+}
+
+.form-colors .btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border-color: #007bff;
+}
+
+.form-colors .btn-secondary {
+    background-color: #6c757d; /* Bootstrap secondary color */
+    border-color: #6c757d;
+}
+
+/* Hover effects for buttons */
+.form-colors .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.form-colors .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}

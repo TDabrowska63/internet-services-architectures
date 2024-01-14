@@ -6,6 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsWebFilter;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+import org.springframework.web.util.pattern.PathPatternParser;
 
 @SpringBootApplication
 public class SeriesManagerGatewayApplication {
@@ -44,5 +48,19 @@ public class SeriesManagerGatewayApplication {
 						.uri(characterUrl)
 				)
 				.build();
+	}
+
+	@Bean
+	public CorsWebFilter corsWebFilter() {
+		CorsConfiguration corsConfig = new CorsConfiguration();
+		corsConfig.setAllowCredentials(true);
+		corsConfig.addAllowedOrigin("http://localhost:4200"); // Or use `addAllowedOriginPattern("*")` for allowing all origins
+		corsConfig.addAllowedHeader("*");
+		corsConfig.addAllowedMethod("*");
+
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(new PathPatternParser());
+		source.registerCorsConfiguration("/**", corsConfig);
+
+		return new CorsWebFilter(source);
 	}
 }

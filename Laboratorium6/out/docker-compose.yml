@@ -21,7 +21,8 @@ services:
       - series-db-data:/var/lib/postgresql/data
   
   character-app:
-    image: character-app
+    # image: character-app
+    build: ./CharacterApplication-jar/.
     restart: always
     environment:
       SPRING_DATASOURCE_URL: "jdbc:postgresql://character-db:5432/character_db"
@@ -31,7 +32,8 @@ services:
       SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
       
   series-app:
-    image: series-app
+    # image: series-app
+    build: ./SeriesApplication-jar/.
     restart: always
     depends_on: 
       character-app:
@@ -45,14 +47,18 @@ services:
       SPRING_DATASOURCE_USERNAME: "series_user"
       SPRING_DATASOURCE_PASSWORD: "series_password"
       SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+      TESTOWA_ZMIENNA: "XDD"
   
   series-manager-gateway:
-    image: series-manager-gateway
+    # image: series-manager-gateway
+    build: ./SeriesManagerGateway-jar/.
     restart: always
     environment:
       CHARACTER_APP_URL: "http://character-app:8080"
       SERIES_APP_URL: "http://series-app:8080"
       MANAGER_GATEWAY_HOST: "series-manager-gateway:8080"
+    ports:
+      - "8084:8080"
     
   angular:
     image: angular

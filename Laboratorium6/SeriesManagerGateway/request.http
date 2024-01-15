@@ -1,7 +1,7 @@
 ## ******************************** Characters ********************************
 
 ### get all characters
-GET http://localhost:8080/api/characters
+GET http://localhost:8084/api/characters
 ### get character with id
 GET http://localhost:8084/api/characters/c42e98c6-ad0e-4d06-bea9-5b7a49cba6dc
 ### get character not existing

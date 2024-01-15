@@ -15,7 +15,9 @@ public class SeriesApplication {
 	}
 
 	@Bean
-	public RestTemplate restTemplate(@Value("${character.app.url}") String baseUrl)
+	public RestTemplate restTemplate(
+			@Value("${character.app.url}") String baseUrl
+	)
 	{
 		System.out.println("character.app.url: " + baseUrl);
 		return new RestTemplateBuilder().rootUri(baseUrl).build();

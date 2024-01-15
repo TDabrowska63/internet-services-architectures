@@ -57,7 +57,7 @@ public class SeriesManagerGatewayApplication {
 	public CorsWebFilter corsWebFilter() {
 		CorsConfiguration corsConfig = new CorsConfiguration();
 		corsConfig.setAllowCredentials(true);
-		corsConfig.addAllowedOrigin("http://localhost:4200"); // Or use `addAllowedOriginPattern("*")` for allowing all origins
+		corsConfig.addAllowedOrigin("http://localhost:8087"); // Or use `addAllowedOriginPattern("*")` for allowing all origins
 		corsConfig.addAllowedHeader("*");
 		corsConfig.addAllowedMethod("*");
 

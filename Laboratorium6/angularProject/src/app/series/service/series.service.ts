@@ -14,8 +14,6 @@ import {SeriesForm} from "../model/series-form";
 @Injectable()
 export class SeriesService {
 
-
-  private baseUrl = 'http://localhost:8084'
   /**
    * @param http HTTP client
    */
@@ -30,7 +28,7 @@ export class SeriesService {
    */
   getSeriess(): Observable<Seriess> {
     console.log(this.http)
-    return this.http.get<Seriess>(`${this.baseUrl}/api/series`);
+    return this.http.get<Seriess>(`/api/series`);
   }
   getSeries(uuid: string): Observable<SeriesDetails> {
     return this.http.get<SeriesDetails>('/api/series/' + uuid);

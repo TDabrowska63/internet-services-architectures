@@ -1,0 +1,26 @@
+<article *ngIf="series" class="series-create">
+  <header><h2 class="text-center">Create New Series</h2></header>
+
+  <form class="container mt-4 form-colors" #form="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 mb-3">
+        <label for="seriesName" class="form-label">Name:</label>
+        <input id="seriesName" name="seriesName" [(ngModel)]="series.seriesName" class="form-control" required/>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 mb-3">
+        <label for="numberOfSeasons" class="form-label">Number Of Seasons:</label>
+        <input id="numberOfSeasons" type="number" name="numberOfSeasons" [(ngModel)]="series.numberOfSeasons" class="form-control" required/>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6 mb-3 d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-secondary" (click)="form.resetForm()">Reset</button>
+      </div>
+    </div>
+  </form>
+</article>

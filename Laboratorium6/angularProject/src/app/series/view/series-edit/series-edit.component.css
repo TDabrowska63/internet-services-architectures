@@ -1,0 +1,43 @@
+.series-edit {
+    background-color: #f3f6f9; /* Light blue background */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.series-edit h2 {
+    color: #337ab7; /* Darker blue for the header */
+    margin-bottom: 1rem;
+}
+
+.form-colors .form-label {
+    color: #5a5a5a; /* Grey color for labels */
+}
+
+.form-colors .form-control {
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    background-color: #fff; /* White background for inputs */
+    border: 1px solid #ced4da; /* Slight border for inputs */
+}
+
+.form-colors .btn-primary {
+    background-color: #007bff; /* Bootstrap primary color */
+    border-color: #007bff;
+}
+
+.form-colors .btn-secondary {
+    background-color: #6c757d; /* Bootstrap secondary color */
+    border-color: #6c757d;
+}
+
+/* Additional styling for hover effects on buttons */
+.form-colors .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.form-colors .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}

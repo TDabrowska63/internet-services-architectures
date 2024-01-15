@@ -1,0 +1,15 @@
+<article *ngIf="character" class="character-details">
+  <header><h2 class="text-center">{{character.name}}</h2></header>
+
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6">
+        <div class="info-box">
+          <p><strong>Age:</strong> <span>{{character.age}}</span></p>
+          <p><strong>Id:</strong> <span>{{character.id}}</span></p>
+          <p><strong>Series:</strong> <span>{{character.series.seriesName}}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,68 @@
+
+services:
+  character-db:
+    image: postgres:16.1
+    restart: always
+    environment:
+      POSTGRES_DB: "character_db"
+      POSTGRES_USER: "character_user"
+      POSTGRES_PASSWORD: "character_password"
+    volumes:
+      - character-db-data:/var/lib/postgresql/data
+
+  series-db:
+    image: postgres:16.1
+    restart: always
+    environment:
+      POSTGRES_DB: "series_db"
+      POSTGRES_USER: "series_user"
+      POSTGRES_PASSWORD: "series_password"
+    volumes:
+      - series-db-data:/var/lib/postgresql/data
+  
+  character-app:
+    image: character-app
+    restart: always
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://character-db:5432/character_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "character_user"
+      SPRING_DATASOURCE_PASSWORD: "character_password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+      
+  series-app:
+    image: series-app
+    restart: always
+    depends_on: 
+      character-app:
+        condition: service_started
+      series-db:
+        condition: service_started
+    environment:
+      CHARACTER_APP_URL: "http://character-app:8080"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://series-db:5432/series_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "series_user"
+      SPRING_DATASOURCE_PASSWORD: "series_password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+  
+  series-manager-gateway:
+    image: series-manager-gateway
+    restart: always
+    environment:
+      CHARACTER_APP_URL: "http://character-app:8080"
+      SERIES_APP_URL: "http://series-app:8080"
+      MANAGER_GATEWAY_HOST: "series-manager-gateway:8080"
+    
+  angular:
+    image: angular
+    restart: always
+    environment:
+      API_URL: http://series-manager-gateway:8080/api
+    ports:
+      - "8087:80"
+
+volumes:
+  series-db-data:
+  character-db-data:
+

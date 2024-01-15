@@ -16,5 +16,5 @@ ENV API_URL http://localhost:8084/api
 
 EXPOSE 80
 
-COPY --from=build /app/dist/angularProject/browser /usr/share/nginx/html
+COPY --from=build /app/dist/angular-project/browser /usr/share/nginx/html
 COPY docker/etc/nginx/templates/ /etc/nginx/templates/
